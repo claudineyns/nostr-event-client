@@ -11,7 +11,7 @@ const db = {
 
 // module.exports = db;
 
-const list = await fetchActiveEvents();
+const list = fetchActiveEvents();
 
 console.log(list);
 
