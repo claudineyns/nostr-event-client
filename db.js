@@ -17,7 +17,7 @@ async function fetchActiveEvents() {
   const client = await open();
   await client.connect();
 
-  const events = fetchList(client, 'event');
+  const events = await fetchList(client, 'event');
 
   console.log(events);
 }
