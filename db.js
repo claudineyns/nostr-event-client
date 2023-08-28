@@ -3,7 +3,7 @@ const { createClient } = require('redis');
 const redishost = process.env.REDIS_HOST;
 const redispass = process.env.REDIS_PASS;
 
-const open = () => createClient({ url: `redis://${redispass}@${redishost}:6379` }).connect();
+const open = () => createClient({ url: `redis://default:${redispass}@${redishost}:6379` }).connect();
 
 const db = {
   fetchActiveEvents
