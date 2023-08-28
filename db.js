@@ -26,7 +26,7 @@ async function fetchActiveEvents() {
 
   const list = events.concat(profiles).concat(contacts).concat(parameters);
 
-  console.log(list);
+  console.log(JSON.stringify(list, null, 2));
 }
 
 
