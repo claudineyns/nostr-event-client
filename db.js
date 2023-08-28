@@ -18,7 +18,6 @@ async function fetchActiveEvents() {
   await client.connect();
 
   const events = fetchList(client, 'event');
-  await client.disconnect();
 
   print(events);
 }
