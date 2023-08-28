@@ -1,6 +1,7 @@
 const { createHash } = require('node:crypto');
 const express = require('express');
 const app = express();
+const db = require('./db');
 
 const Buffer     = require('safe-buffer').Buffer;
 const BigInteger = require('bigi');
