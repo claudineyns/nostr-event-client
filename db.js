@@ -3,7 +3,7 @@ const { createClient } = require('redis');
 const redishost = process.env.REDIS_HOST;
 const redispass = process.env.REDIS_PASS;
 
-const open = () => createClient({ url: `redis://default:${redispass}@${redishost}:6379` }).connect();
+const open = () => createClient({ url: `redis://default:${redispass}@${redishost}:6379` });
 
 const db = {
   fetchActiveEvents
@@ -15,8 +15,10 @@ fetchActiveEvents();
 
 async function fetchActiveEvents() {
   const client = await open();
+  await client.connect();
 
   const events = fetchList(client, 'event');
+  await client.close();
 
   print(events);
 }
