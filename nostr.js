@@ -18,6 +18,7 @@ app.post('/event', (req, res) => {
 app.get('/event/activeList', async (req, res) => {
   const list = await db.fetchActiveEvents();
   const raw = JSON.stringify(list);
+  console.log(raw);
   return res.status(200).header('Content-Type','application/json;charset=UTF-8').send(raw);
 });
 
