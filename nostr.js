@@ -16,6 +16,11 @@ app.post('/event', (req, res) => {
   return res.json(data);
 });
 
+app.get('/event/activeList', async (req, res) => {
+  const list = await db.fetchActiveList();
+  return res.json(list);
+});
+
 app.listen(8888, () => console.log('Application started on port 8888'));
 
 //---------------------------------------------------

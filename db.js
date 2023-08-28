@@ -9,9 +9,7 @@ const db = {
   fetchActiveEvents
 };
 
-// module.exports = db;
-
-fetchActiveEvents();
+module.exports = db;
 
 async function fetchActiveEvents() {
   const client = await open();
