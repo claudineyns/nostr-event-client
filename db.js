@@ -11,22 +11,22 @@ const db = {
 
 // module.exports = db;
 
-const list = fetchActiveEvents();
-
-console.log(list);
+fetchActiveEvents();
 
 async function fetchActiveEvents() {
   const client = await open();
   await client.connect();
 
-  const events     = fetchList(client, 'event');
-  const profiles   = fetchList(client, 'profile');
-  const contacts   = fetchList(client, 'contact');
-  const parameters = fetchList(client, 'parameter');
+  const events     = await fetchList(client, 'event');
+  const profiles   = await fetchList(client, 'profile');
+  const contacts   = await fetchList(client, 'contact');
+  const parameters = await fetchList(client, 'parameter');
 
   await client.disconnect();
 
-  return events.concat(profiles).concat(contacts).concat(parameters);
+  const list = events.concat(profiles).concat(contacts).concat(parameters);
+
+  console.log(list);
 }
 
 
