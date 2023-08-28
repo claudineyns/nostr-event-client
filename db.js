@@ -22,9 +22,7 @@ async function fetchActiveEvents() {
 
   await client.disconnect();
 
-  const list = events.concat(profiles).concat(contacts).concat(parameters);
-
-  console.log(JSON.stringify(list, null, 2));
+  return events.concat(profiles).concat(contacts).concat(parameters);
 }
 
 
