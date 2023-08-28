@@ -27,7 +27,10 @@ async function fetchList(redis, cache) {
   const ids = await redis.sMembers(cache+'List');
 
   const list = [];
-  ids.forEach( async id => (await redis.get(cache+'#'+id)).forEach( event => list.push(JSON.parse(event)) ) );
+  ids.forEach( d => {
+    const raw = await redis.get(cache+'#'+id);
+    list.push(JSON.parse(raw));
+  });
 
   return list;
 }
