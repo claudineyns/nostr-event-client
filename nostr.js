@@ -6,7 +6,6 @@ const db = require('./db');
 const Buffer     = require('safe-buffer').Buffer;
 const BigInteger = require('bigi');
 const schnorr    = require('bip-schnorr');
-const convert    = schnorr.convert;
 
 app.use(express.json());
 
@@ -18,6 +17,7 @@ app.post('/event', (req, res) => {
 
 app.get('/event/activeList', async (req, res) => {
   const list = await db.fetchActiveEvents();
+  console.log(JSON.stringify(list, null, 2));
   return res.json(list);
 });
 
