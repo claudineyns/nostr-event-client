@@ -19,7 +19,7 @@ async function fetchActiveEvents() {
 
   const events = fetchList(client, 'event');
 
-  print(events);
+  console.log(events);
 }
 
 
