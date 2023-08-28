@@ -13,7 +13,7 @@ const db = {
 
 fetchActiveEvents();
 
-function async fetchActiveEvents() {
+async function fetchActiveEvents() {
   const client = await open();
 
   const events = fetchList(client, 'event');
@@ -22,7 +22,7 @@ function async fetchActiveEvents() {
 }
 
 
-function async fetchList(redis, cache) {
+async function fetchList(redis, cache) {
   const ids = await redis.smembers(cache+'List');
 
   const list = [];
