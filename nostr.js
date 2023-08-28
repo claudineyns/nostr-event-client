@@ -17,7 +17,7 @@ app.post('/event', (req, res) => {
 });
 
 app.get('/event/activeList', async (req, res) => {
-  const list = await db.fetchActiveList();
+  const list = await db.fetchActiveEvents();
   return res.json(list);
 });
 
