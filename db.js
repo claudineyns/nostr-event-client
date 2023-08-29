@@ -15,14 +15,13 @@ async function fetchActiveEvents() {
   const client = await open();
   await client.connect();
 
-  const events     = await fetchList(client, 'event');
-  const profiles   = await fetchList(client, 'profile');
-  const contacts   = await fetchList(client, 'contact');
-  const parameters = await fetchList(client, 'parameter');
+  const events       = await fetchList(client, 'event');
+  const replaceables = await fetchList(client, 'replaceable');
+  const parameters   = await fetchList(client, 'parameter');
 
   await client.disconnect();
 
-  return events.concat(profiles).concat(contacts).concat(parameters);
+  return events.concat(replaceables).concat(parameters);
 }
 
 
