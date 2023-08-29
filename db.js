@@ -31,7 +31,7 @@ async function fetchList(redis, cache) {
   const list = [];
   for(let id of ids) {
     const event = await redis.get(cache+'#'+id);
-    list.push(JSON.parse(event));
+    if(event != null) list.push(JSON.parse(event));
   }
 
   return list;
