@@ -7,7 +7,7 @@ const { bech32, bech32m }         = require('bech32')
 
 console.log('Finding some privkey');
 
-//const keypair = keypair_from_private('???');
+//const keypair = keypair_from_private('<key>');
 const keypair = gen_keypair();
 console.log('compressed\n',keypair.compressed);
 console.log('bech32\n',keypair.bech32);
