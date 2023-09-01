@@ -4,13 +4,14 @@ const { bech32, bech32m }         = require('bech32')
 
 // or require('secp256k1/elliptic')
 //   if you want to use pure js implementation in node
-
-console.log('Finding some privkey');
-
+//
 //const keypair = keypair_from_private('<key>');
-const keypair = gen_keypair();
-console.log('compressed\n',keypair.compressed);
-console.log('bech32\n',keypair.bech32);
+//
+//const keypair = gen_keypair();
+//console.log('compressed\n',keypair.compressed);
+//console.log('bech32\n',keypair.bech32);
+//
+//console.log(bech32_from_public('<pubHex>'));
 
 function gen_keypair() {
   let privKey;
@@ -19,6 +20,16 @@ function gen_keypair() {
   } while (!secp256k1.privateKeyVerify(privKey))
 
   return keypair_from_private(privKey);
+}
+
+function bech32_from_public(pubHex) {
+  const pbq = bech32.toWords(Buffer.from(pubHex, 'hex'));
+  return bech32.encode('npub', pbq);
+}
+
+function bech32_from_private(privHex) {
+  const pvq = bech32.toWords(Buffer.from(privHex, 'hex'));
+  return bech32.encode('nsec', pvq);
 }
 
 function keypair_from_private(priv) {
