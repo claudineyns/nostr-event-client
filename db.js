@@ -21,7 +21,7 @@ async function fetchActiveEvents() {
 
   await client.disconnect();
 
-  return events.concat(replaceables).concat(parameters).sort( (a, b) -> b.created_at - a.created_at );
+  return events.concat(replaceables).concat(parameters).sort( (a, b) => b.created_at - a.created_at );
 }
 
 
