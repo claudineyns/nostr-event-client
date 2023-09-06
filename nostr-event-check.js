@@ -5,9 +5,10 @@ const Buffer     = require('safe-buffer').Buffer;
 const BigInteger = require('bigi');
 const schnorr    = require('bip-schnorr');
 
-const data = validate_event(JSON.parse(process.argv[2]));
-console.log(JSON.stringify(data));
+const event = Buffer.from(process.argv[2].replaceAll('-','+').replaceAll('_','/'), 'base64').toString('utf8')
 
+const data = validate_event(JSON.parse(event));
+console.log(JSON.stringify(data));
 
 function validate_event(event) {
 
